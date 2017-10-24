@@ -1,4 +1,5 @@
-function BookLookup(){
+function BookLookup(AmazonServices){
+    this.AmazonServices = AmazonServices
     
     this.search =(isbn) =>{
         return this.AmazonService(isbn)
