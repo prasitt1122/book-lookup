@@ -25,6 +25,9 @@ test('BookLookup',() =>{
     expect(AmazonServices).toHaveBeenCalled()
     expect(AmazonServices).toHaveBeenCalledWith(ispn)
     expect(value.name).toBe("basic java")
+    expect(value).toHaveProperty("cover")
+    
+
     
 
 
