@@ -1,8 +1,8 @@
 function BookLookup(AmazonServices){
     this.AmazonServices = AmazonServices
     
-    this.search =(isbn) =>{
-        let Search = this.AmazonServices(isbn)
+    this.search =(ispn) =>{
+        let Search = this.AmazonServices(ispn)
         return Search
     }
     
@@ -15,12 +15,14 @@ function BookLookup(AmazonServices){
 
 test('BookLookup',() =>{
     const AmazonServices = jest.fn('1234567890123')
-    .mockReturnValue({name:'basic java',cover:'javabasic.com',isbn:'1234567890123'})
+    .mockReturnValue({name:'basic java',cover:'javabasic.com',ispn:'1234567890123'})
     let app = new BookLookup(AmazonServices)
-    let isbn = '1234567890123'
-    let value = app.search(isbn)
+    let ispn = '1234567890123'
+    let value = app.search(ispn)
 
 
-    expect(value).toEqual({name:'basic java',cover:'javabasic.com',isbn:'1234567890123'})
+    expect(value).toEqual({name:'basic java',cover:'javabasic.com',ispn:'1234567890123'})
+    expect(AmazonServices).toHaveBeenCalled()
+    expect(AmazonServices).toHaveBeenCalledWith(ispn)
 
 })
