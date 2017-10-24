@@ -24,5 +24,8 @@ test('BookLookup',() =>{
     expect(value).toEqual({name:'basic java',cover:'javabasic.com',ispn:'1234567890123'})
     expect(AmazonServices).toHaveBeenCalled()
     expect(AmazonServices).toHaveBeenCalledWith(ispn)
+    expect(value.name).toBe("basic java")
+    
+
 
 })
